@@ -59,10 +59,6 @@ const people = [
   "Blake, William"
 ];
 
-// Array.prototype.map()
-// 2. Give us an array of the inventors first and last names
-// Array.prototype.sort()
-// 3. Sort the inventors by birthdate, oldest to youngest
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live all together?
 // 5. Sort the inventors by years lived
@@ -103,6 +99,9 @@ const filterBornIn1500s = () => {
     li.innerHTML += JSON.stringify(bornIn1500).replace(/[\[\"\]\}\{\\]/g, " ");
   });
 };
+
+// Array.prototype.map()
+// 2. Give us an array of the inventors first and last names
 const inventorFirstAndLastNames = () => {
   const fullNames = inventors.map(
     inventor => `${inventor.first} ${inventor.last}`
@@ -115,5 +114,23 @@ const inventorFirstAndLastNames = () => {
   });
 };
 
+// Array.prototype.sort()
+// 3. Sort the inventors by birthdate, oldest to youngest
+const inventorBirthdate = () => {
+  const orderedBirthYears = inventors.sort((a, b) =>
+    a.year > b.year ? 1 : -1
+  );
+  orderedBirthYears.forEach(orderedBirthYear => {
+    const ul = document.querySelector(".task3-list");
+    let li = document.createElement("li");
+    ul.appendChild(li);
+    li.innerHTML += JSON.stringify(orderedBirthYear).replace(
+      /[\[\"\]\}\{\\]/g,
+      " "
+    );
+  });
+};
+
+inventorBirthdate();
 inventorFirstAndLastNames();
 filterBornIn1500s();
