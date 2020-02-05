@@ -106,5 +106,17 @@ const filterYear = () => {
     );
   });
 };
+const mapNames = () => {
+  const fullNames = inventors.map(
+    inventor => `${inventor.first} ${inventor.last}`
+  );
+  fullNames.forEach(fullName => {
+    const ul = document.querySelector(".task2-list");
+    let li = document.createElement("li");
+    ul.appendChild(li);
+    li.innerHTML += fullName;
+  });
+};
 
+mapNames();
 filterYear();
