@@ -143,7 +143,25 @@ const totalYearsLived = () => {
   ul.appendChild(li);
   li.innerHTML += "Total Years Lived: " + totalYears;
 };
+// 5. Sort the inventors by years lived
+const sortedOldestFirst = () => {
+  const oldestInventors = inventors.sort(function(a, b) {
+    const lastInventor = a.passed - a.year;
+    const nextInventor = b.passed - b.year;
+    return lastInventor > nextInventor ? -1 : 1;
+  });
+  oldestInventors.forEach((oldestInventor, i) => {
+    const ul = document.querySelector(".task5-list");
+    let li = document.createElement("li");
+    ul.appendChild(li);
+    li.innerHTML += JSON.stringify(oldestInventor).replace(
+      /[\[\"\]\}\{\\]/g,
+      " "
+    );
+  });
+};
 
+sortedOldestFirst();
 totalYearsLived();
 sortByEarliestBirthdate();
 inventorFirstAndLastNames();
