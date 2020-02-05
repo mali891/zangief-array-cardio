@@ -58,8 +58,7 @@ const people = [
   "Blair, Tony",
   "Blake, William"
 ];
-// Array.prototype.filter()
-// 1. Filter the list of inventors for those who were born in the 1500's
+
 // Array.prototype.map()
 // 2. Give us an array of the inventors first and last names
 // Array.prototype.sort()
@@ -89,30 +88,23 @@ const data = [
   "car",
   "truck"
 ];
+
+// Array.prototype.filter()
+// 1. Filter the list of inventors for those who were born in the 1500's
 const filterYear = () => {
-  function isOld(inventor) {
-    return inventor.year >= 1500 && inventor.year <= 1600;
-  }
-  let oldEnough = inventors.filter(isOld);
-
-  oldEnough0 = JSON.stringify(oldEnough[0]).replace(/[\[\"\]\}\{\\]/g, " ");
-  oldEnough1 = JSON.stringify(oldEnough[1]).replace(/[\[\"\]\}\{\\]/g, " ");
-
-  document.querySelector(".task1-content").innerHTML =
-    oldEnough0 + "<br>" + oldEnough1;
-};
-
-const mapNames = () => {
-  const fullNames = inventors.map(
-    inventor => `${inventor.first} ${inventor.last}`
+  const oldEnoughInventors = inventors.filter(
+    inventor => inventor.year >= 1500 && inventor.year <= 1599
   );
-  fullNames.forEach(fullName => {
-    const ul = document.querySelector(".task2-list");
+
+  oldEnoughInventors.forEach(oldEnoughInventor => {
+    const ul = document.querySelector(".task1-list");
     let li = document.createElement("li");
     ul.appendChild(li);
-    li.innerHTML += fullName;
+    li.innerHTML += JSON.stringify(oldEnoughInventor).replace(
+      /[\[\"\]\}\{\\]/g,
+      " "
+    );
   });
 };
 
 filterYear();
-mapNames();
