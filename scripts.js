@@ -87,18 +87,16 @@ const data = [
   "truck"
 ];
 
-// Array.prototype.map()
-// 2. Give us an array of the inventors first and last names
-const mapNames = () => {
-  const fullNames = inventors.map(
-    inventor => `${inventor.first} ${inventor.last}`
-  );
-  fullNames.forEach(fullName => {
-    const ul = document.querySelector(".task2-list");
+// Array.prototype.sort()
+// 3. Sort the inventors by birthdate, oldest to youngest
+const sortDates = () => {
+  const orderedItems = inventors.sort((a, b) => (a.year > b.year ? 1 : -1));
+  orderedItems.forEach(orderedItem => {
+    const ul = document.querySelector(".task3-list");
     let li = document.createElement("li");
     ul.appendChild(li);
-    li.innerHTML += fullName;
+    li.innerHTML += JSON.stringify(orderedItem).replace(/[\[\"\]\}\{\\]/g, " ");
   });
 };
 
-mapNames();
+sortDates();
