@@ -89,18 +89,6 @@ const data = [
   "car",
   "truck"
 ];
-const filterYear = () => {
-  function isOld(inventor) {
-    return inventor.year >= 1500 && inventor.year <= 1600;
-  }
-  let oldEnough = inventors.filter(isOld);
-
-  oldEnough0 = JSON.stringify(oldEnough[0]).replace(/[\[\"\]\}\{\\]/g, " ");
-  oldEnough1 = JSON.stringify(oldEnough[1]).replace(/[\[\"\]\}\{\\]/g, " ");
-
-  document.querySelector(".task1-content").innerHTML =
-    oldEnough0 + "<br>" + oldEnough1;
-};
 
 const mapNames = () => {
   const fullNames = inventors.map(
@@ -114,5 +102,4 @@ const mapNames = () => {
   });
 };
 
-filterYear();
 mapNames();
