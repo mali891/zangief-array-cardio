@@ -13,7 +13,7 @@ ul {
   padding: 0;
 }
 
-.task-box {
+.item-border {
   border: 0.1rem solid #000000;
   margin-bottom: 2rem;
   padding: 2rem;
