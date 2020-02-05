@@ -91,7 +91,7 @@ const data = [
 
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
-const filterYear = () => {
+const filterBornIn1500s = () => {
   const bornIn1500s = inventors.filter(
     inventor => inventor.year >= 1500 && inventor.year <= 1599
   );
@@ -116,4 +116,4 @@ const inventorFirstAndLastNames = () => {
 };
 
 inventorFirstAndLastNames();
-filterYear();
+filterBornIn1500s();
