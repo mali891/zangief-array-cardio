@@ -84,7 +84,7 @@ const data = [
   "car",
   "truck"
 ];
-const renderItem = (item, location) => {
+const renderItems = (item, location) => {
   const ul = document.querySelector(location);
   let li = document.createElement("li");
   ul.appendChild(li);
@@ -97,7 +97,7 @@ const filterBornIn1500s = () => {
     inventor => inventor.year >= 1500 && inventor.year <= 1599
   );
   bornIn1500s.forEach(bornIn1500 => {
-    renderItem(bornIn1500, ".task1-list");
+    renderItems(bornIn1500, ".task1-list");
   });
 };
 
@@ -108,7 +108,7 @@ const inventorFirstAndLastNames = () => {
     inventor => `${inventor.first} ${inventor.last}`
   );
   fullNames.forEach(fullName => {
-    renderItem(fullName, ".task2-list");
+    renderItems(fullName, ".task2-list");
   });
 };
 
@@ -119,7 +119,7 @@ const sortByEarliestBirthdate = () => {
     a.year > b.year ? 1 : -1
   );
   orderedBirthYears.forEach(orderedBirthYear => {
-    renderItem(orderedBirthYear, ".task3-list");
+    renderItems(orderedBirthYear, ".task3-list");
   });
 };
 
@@ -143,7 +143,7 @@ const sortedOldestFirst = () => {
     return lastInventor > nextInventor ? -1 : 1;
   });
   oldestInventors.forEach((oldestInventor, i) => {
-    renderItem(oldestInventor, ".task5-list");
+    renderItems(oldestInventor, ".task5-list");
   });
 };
 
