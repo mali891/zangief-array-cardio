@@ -92,15 +92,15 @@ const data = [
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
 const filterYear = () => {
-  const bornin1500s = inventors.filter(
+  const bornIn1500s = inventors.filter(
     inventor => inventor.year >= 1500 && inventor.year <= 1599
   );
 
-  bornin1500s.forEach(bornin1500 => {
+  bornIn1500s.forEach(bornIn1500 => {
     const ul = document.querySelector(".task1-list");
     let li = document.createElement("li");
     ul.appendChild(li);
-    li.innerHTML += JSON.stringify(bornin1500).replace(/[\[\"\]\}\{\\]/g, " ");
+    li.innerHTML += JSON.stringify(bornIn1500).replace(/[\[\"\]\}\{\\]/g, " ");
   });
 };
 const inventorFirstAndLastNames = () => {
