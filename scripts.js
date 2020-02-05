@@ -84,19 +84,20 @@ const data = [
   "car",
   "truck"
 ];
-
+const renderItems = (item, location) => {
+  const ul = document.querySelector(location);
+  let li = document.createElement("li");
+  ul.appendChild(li);
+  li.innerHTML += JSON.stringify(item).replace(/[\[\"\]\}\{\\]/g, " ");
+};
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
 const filterBornIn1500s = () => {
   const bornIn1500s = inventors.filter(
     inventor => inventor.year >= 1500 && inventor.year <= 1599
   );
-
   bornIn1500s.forEach(bornIn1500 => {
-    const ul = document.querySelector(".task1-list");
-    let li = document.createElement("li");
-    ul.appendChild(li);
-    li.innerHTML += JSON.stringify(bornIn1500).replace(/[\[\"\]\}\{\\]/g, " ");
+    renderItems(bornIn1500, ".task1-list");
   });
 };
 
@@ -107,10 +108,7 @@ const inventorFirstAndLastNames = () => {
     inventor => `${inventor.first} ${inventor.last}`
   );
   fullNames.forEach(fullName => {
-    const ul = document.querySelector(".task2-list");
-    let li = document.createElement("li");
-    ul.appendChild(li);
-    li.innerHTML += fullName;
+    renderItems(fullName, ".task2-list");
   });
 };
 
@@ -121,13 +119,7 @@ const sortByEarliestBirthdate = () => {
     a.year > b.year ? 1 : -1
   );
   orderedBirthYears.forEach(orderedBirthYear => {
-    const ul = document.querySelector(".task3-list");
-    let li = document.createElement("li");
-    ul.appendChild(li);
-    li.innerHTML += JSON.stringify(orderedBirthYear).replace(
-      /[\[\"\]\}\{\\]/g,
-      " "
-    );
+    renderItems(orderedBirthYear, ".task3-list");
   });
 };
 
@@ -143,7 +135,19 @@ const totalYearsLived = () => {
   ul.appendChild(li);
   li.innerHTML += "Total Years Lived: " + totalYears;
 };
+// 5. Sort the inventors by years lived
+const sortedOldestFirst = () => {
+  const oldestInventors = inventors.sort(function(a, b) {
+    const lastInventor = a.passed - a.year;
+    const nextInventor = b.passed - b.year;
+    return lastInventor > nextInventor ? -1 : 1;
+  });
+  oldestInventors.forEach((oldestInventor, i) => {
+    renderItems(oldestInventor, ".task5-list");
+  });
+};
 
+sortedOldestFirst();
 totalYearsLived();
 sortByEarliestBirthdate();
 inventorFirstAndLastNames();
