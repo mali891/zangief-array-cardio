@@ -131,6 +131,20 @@ const sortByEarliestBirthdate = () => {
   });
 };
 
+// Array.prototype.reduce()
+// 4. How many years did all the inventors live all together?
+const totalYearsLived = () => {
+  const totalYears = inventors.reduce((total, inventor) => {
+    return total + (inventor.passed - inventor.year);
+  }, 0);
+
+  const ul = document.querySelector(".task4-list");
+  let li = document.createElement("li");
+  ul.appendChild(li);
+  li.innerHTML += "Total Years Lived: " + totalYears;
+};
+
+totalYearsLived();
 sortByEarliestBirthdate();
 inventorFirstAndLastNames();
 filterBornIn1500s();
