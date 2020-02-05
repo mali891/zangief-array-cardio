@@ -91,20 +91,29 @@ const data = [
 
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
-const filterYear = () => {
-  const oldEnoughInventors = inventors.filter(
+const filterBornIn1500s = () => {
+  const bornIn1500s = inventors.filter(
     inventor => inventor.year >= 1500 && inventor.year <= 1599
   );
 
-  oldEnoughInventors.forEach(oldEnoughInventor => {
+  bornIn1500s.forEach(bornIn1500 => {
     const ul = document.querySelector(".task1-list");
     let li = document.createElement("li");
     ul.appendChild(li);
-    li.innerHTML += JSON.stringify(oldEnoughInventor).replace(
-      /[\[\"\]\}\{\\]/g,
-      " "
-    );
+    li.innerHTML += JSON.stringify(bornIn1500).replace(/[\[\"\]\}\{\\]/g, " ");
+  });
+};
+const inventorFirstAndLastNames = () => {
+  const fullNames = inventors.map(
+    inventor => `${inventor.first} ${inventor.last}`
+  );
+  fullNames.forEach(fullName => {
+    const ul = document.querySelector(".task2-list");
+    let li = document.createElement("li");
+    ul.appendChild(li);
+    li.innerHTML += fullName;
   });
 };
 
-filterYear();
+inventorFirstAndLastNames();
+filterBornIn1500s();
