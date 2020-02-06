@@ -152,6 +152,7 @@ const deBoulevardsParis = () => {
 
 // 7. sort Exercise
 // Sort the people alphabetically by last name
+
 const orderedPeopleLastNameAlpha = () => {
   const orderedLastNames = people.sort((lastOne, firstOne) => {
     const [aLast, aFirst] = lastOne.split(", ");
@@ -163,6 +164,20 @@ const orderedPeopleLastNameAlpha = () => {
   });
 };
 
+// 8. Reduce Exercise
+// Sum up the instances of each of these
+const sumOfVehicles = () => {
+  const vehicles = data.reduce((obj, item) => {
+    if (!obj[item]) {
+      obj[item] = 0;
+    }
+    obj[item]++;
+    return obj;
+  }, {});
+  renderItems(vehicles, ".task8-list");
+};
+
+sumOfVehicles();
 orderedPeopleLastNameAlpha();
 sortedOldestFirst();
 totalYearsLived();
