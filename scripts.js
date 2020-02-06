@@ -59,11 +59,6 @@ const people = [
   "Blake, William"
 ];
 
-// Array.prototype.reduce()
-// 4. How many years did all the inventors live all together?
-// 5. Sort the inventors by years lived
-// 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-// https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 // 7. sort Exercise
 // Sort the people alphabetically by last name
 // 8. Reduce Exercise
@@ -145,6 +140,16 @@ const sortedOldestFirst = () => {
   oldestInventors.forEach((oldestInventor, i) => {
     renderItems(oldestInventor, ".task5-list");
   });
+};
+
+// 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
+// https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+const deBoulevardsParis = () => {
+  const category = document.querySelector(".mw-category");
+  const links = Array.from(category.querySelectorAll("a"));
+  const deItems = links
+    .map(link => link.textContent)
+    .filter(streetName => streetName.includes("de"));
 };
 
 sortedOldestFirst();
