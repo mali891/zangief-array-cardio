@@ -59,8 +59,6 @@ const people = [
   "Blake, William"
 ];
 
-// 7. sort Exercise
-// Sort the people alphabetically by last name
 // 8. Reduce Exercise
 // Sum up the instances of each of these
 const data = [
@@ -151,7 +149,10 @@ const deBoulevardsParis = () => {
     .map(link => link.textContent)
     .filter(streetName => streetName.includes("de"));
 };
-const orderedPeopleName = () => {
+
+// 7. sort Exercise
+// Sort the people alphabetically by last name
+const orderedPeopleLastNameAlpha = () => {
   const orderedLastNames = people.sort((lastOne, firstOne) => {
     const [aLast, aFirst] = lastOne.split(", ");
     const [bLast, bFirst] = firstOne.split(", ");
@@ -162,7 +163,7 @@ const orderedPeopleName = () => {
   });
 };
 
-orderedPeopleName();
+orderedPeopleLastNameAlpha();
 sortedOldestFirst();
 totalYearsLived();
 sortByEarliestBirthdate();
