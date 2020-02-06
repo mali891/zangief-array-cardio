@@ -164,10 +164,9 @@ const orderedPeopleLastNameAlpha = () => {
   });
 };
 
-
 // 8. Reduce Exercise
 // Sum up the instances of each of these
-const reduceCars = () => {
+const sumOfVehicles = () => {
   const vehicles = data.reduce((obj, item) => {
     if (!obj[item]) {
       obj[item] = 0;
@@ -175,13 +174,10 @@ const reduceCars = () => {
     obj[item]++;
     return obj;
   }, {});
-  const ul = document.querySelector(".task8-list");
-  let li = document.createElement("li");
-  ul.appendChild(li);
-  li.innerHTML += JSON.stringify(vehicles).replace(/[\[\"\]\}\{\\]/g, " ");
+  renderItems(vehicles, ".task8-list");
 };
 
-reduceCars();
+sumOfVehicles();
 orderedPeopleLastNameAlpha();
 sortedOldestFirst();
 totalYearsLived();
