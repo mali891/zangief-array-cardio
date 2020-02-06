@@ -151,7 +151,18 @@ const deBoulevardsParis = () => {
     .map(link => link.textContent)
     .filter(streetName => streetName.includes("de"));
 };
+const orderedPeopleName = () => {
+  const orderedLastNames = people.sort((lastOne, firstOne) => {
+    const [aLast, aFirst] = lastOne.split(", ");
+    const [bLast, bFirst] = firstOne.split(", ");
+    return aLast > bLast ? 1 : -1;
+  });
+  orderedLastNames.forEach(orderedLastName => {
+    renderItems(orderedLastName, ".task7-list");
+  });
+};
 
+orderedPeopleName();
 sortedOldestFirst();
 totalYearsLived();
 sortByEarliestBirthdate();
