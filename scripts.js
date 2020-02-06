@@ -152,6 +152,23 @@ const deBoulevardsParis = () => {
     .filter(streetName => streetName.includes("de"));
 };
 
+// 8. Reduce Exercise
+// Sum up the instances of each of these
+const reduceCars = () => {
+  const vehicles = data.reduce((obj, item) => {
+    if (!obj[item]) {
+      obj[item] = 0;
+    }
+    obj[item]++;
+    return obj;
+  }, {});
+  const ul = document.querySelector(".task8-list");
+  let li = document.createElement("li");
+  ul.appendChild(li);
+  li.innerHTML += JSON.stringify(vehicles).replace(/[\[\"\]\}\{\\]/g, " ");
+};
+
+reduceCars();
 sortedOldestFirst();
 totalYearsLived();
 sortByEarliestBirthdate();
